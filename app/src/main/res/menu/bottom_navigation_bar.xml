@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pantallaInicio"
+        android:icon="@drawable/ic_baseline_home_black"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/pantallaCategorias"
+        android:icon="@drawable/ic_sharp_dehaze_black"
+        android:title="Filter" />
+
+    <item
+        android:id="@+id/pantallaFavoritos"
+        android:icon="@drawable/ic_sharp_favorite_black"
+        android:title="Favourite" />
+
+    <item
+        android:id="@+id/pantallaCarrito"
+        android:icon="@drawable/ic_baseline_shopping_cart_black"
+        android:title="Shopping Cart" />
+
+    <item
+        android:id="@+id/pantallaPerfil"
+        android:icon="@drawable/ic_baseline_account_circle_black"
+        android:title="Profile" />
+
+
+
+</menu>

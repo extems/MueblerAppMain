@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "MueblerApp2.0"

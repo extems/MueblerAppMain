@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/pantallaLogin">
+
+    <fragment
+        android:id="@+id/pantallaLogin"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaLogin"
+        android:label="fragment_1"
+        tools:layout="@layout/fragment_1" >
+        <action
+            android:id="@+id/action_pantallaLogin_to_pantallaEleccionUsuario"
+            app:destination="@id/pantallaEleccionUsuario" />
+        <action
+            android:id="@+id/action_pantallaLogin_to_pantallaCambiarContrasena"
+            app:destination="@id/pantallaCambiarContrasena" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaCambiarContrasena"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaCambiarContrasena"
+        android:label="fragment_pantalla_cambiar_contrasena"
+        tools:layout="@layout/fragment_pantalla_cambiar_contrasena" >
+        <action
+            android:id="@+id/action_pantallaCambiarContrasena_to_pantallaLogin"
+            app:destination="@id/pantallaLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaEleccionUsuario"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaEleccionUsuario"
+        android:label="fragment_pantalla_eleccion_usuario"
+        tools:layout="@layout/fragment_pantalla_eleccion_usuario" >
+        <action
+            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaRegistrarse"
+            app:destination="@id/pantallaRegistrarse" />
+        <action
+            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaTerminosYCond"
+            app:destination="@id/pantallaTerminosYCond" />
+        <action
+            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaLogin"
+            app:destination="@id/pantallaLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaNumeroTelefonico"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaNumeroTelefonico"
+        android:label="fragment_pantalla_numero_telefonico"
+        tools:layout="@layout/fragment_pantalla_numero_telefonico" >
+        <action
+            android:id="@+id/action_pantallaNumeroTelefonico_to_pantallaRegistrarse"
+            app:destination="@id/pantallaRegistrarse" />
+        <action
+            android:id="@+id/action_pantallaNumeroTelefonico_to_pantallaPreguntas"
+            app:destination="@id/pantallaPreguntas" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaPreguntas"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaPreguntas"
+        android:label="fragment_pantalla_preguntas"
+        tools:layout="@layout/fragment_pantalla_preguntas" >
+        <action
+            android:id="@+id/action_pantallaPreguntas_to_pantallaNumeroTelefonico"
+            app:destination="@id/pantallaNumeroTelefonico" />
+        <action
+            android:id="@+id/action_pantallaPreguntas_to_pantallaLogin"
+            app:destination="@id/pantallaLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaRegistrarse"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaRegistrarse"
+        android:label="fragment_pantalla_registrarse"
+        tools:layout="@layout/fragment_pantalla_registrarse" >
+        <action
+            android:id="@+id/action_pantallaRegistrarse_to_pantallaEleccionUsuario"
+            app:destination="@id/pantallaEleccionUsuario" />
+        <action
+            android:id="@+id/action_pantallaRegistrarse_to_pantallaNumeroTelefonico"
+            app:destination="@id/pantallaNumeroTelefonico" />
+        <action
+            android:id="@+id/action_pantallaRegistrarse_to_pantallaTerminosYCond"
+            app:destination="@id/pantallaTerminosYCond" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaTerminosYCond"
+        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaTerminosYCond"
+        android:label="fragment_pantalla_terminos_y_cond"
+        tools:layout="@layout/fragment_pantalla_terminos_y_cond" >
+        <action
+            android:id="@+id/action_pantallaTerminosYCond_to_pantallaRegistrarse"
+            app:destination="@id/pantallaRegistrarse" />
+        <action
+            android:id="@+id/action_pantallaTerminosYCond_to_pantallaEleccionUsuario"
+            app:destination="@id/pantallaEleccionUsuario" />
+    </fragment>
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.example.mueblerapp20.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+</navigation>
