@@ -16,7 +16,6 @@ class PantallaNumeroTelefonico : Fragment() {
 
     lateinit var v : View
 
-    lateinit var btnGoBack : Button
     lateinit var btnNext : Button
 
     override fun onCreateView(
@@ -26,7 +25,6 @@ class PantallaNumeroTelefonico : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_numero_telefonico, container, false)
 
-        btnGoBack = v.findViewById(R.id.btn_goback_user_selection)
         btnNext = v.findViewById(R.id.btn_next)
 
         return v
@@ -34,13 +32,6 @@ class PantallaNumeroTelefonico : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        btnGoBack.setOnClickListener(){
-
-            val toScreen2 = PantallaNumeroTelefonicoDirections.actionPantallaNumeroTelefonicoToPantallaRegistrarse()
-            v.findNavController().navigate(toScreen2)
-
-        }
 
 
         btnNext.setOnClickListener(){

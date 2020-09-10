@@ -10,6 +10,7 @@ import com.example.mueblerapp20.R
 /**
  * A simple [Fragment] subclass.
  */
+
 class PantallaCategorias : Fragment() {
 
     lateinit var v : View

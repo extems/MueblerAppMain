@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.mueblerapp20.R
+import kotlinx.android.synthetic.main.fragment_pantalla_inicio.*
 
 /**
  * A simple [Fragment] subclass.
@@ -16,7 +17,6 @@ class PantallaEleccionUsuario : Fragment() {
 
     lateinit var v : View
 
-    lateinit var btnGoBack : Button
     lateinit var btnRegisterSeller : Button
     lateinit var btnRegisterBuyer : Button
 
@@ -27,7 +27,6 @@ class PantallaEleccionUsuario : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_eleccion_usuario, container, false)
 
-        btnGoBack = v.findViewById(R.id.btn_goback_login)
         btnRegisterSeller = v.findViewById(R.id.btn_register_seller)
         btnRegisterBuyer = v.findViewById(R.id.btn_register_buyer)
 
@@ -37,24 +36,15 @@ class PantallaEleccionUsuario : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        btnGoBack.setOnClickListener(){
-
-            val toScreen2 = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaLogin()
-            v.findNavController().navigate(toScreen2)
-
-        }
-
-
         btnRegisterSeller.setOnClickListener(){
 
-            val toScreen3 = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaTerminosYCond()
-            v.findNavController().navigate(toScreen3)
+            val toScreenTerminosYCond = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaTerminosYCond()
+            v.findNavController().navigate(toScreenTerminosYCond)
 
         }
 
         btnRegisterBuyer.setOnClickListener(){
 
-            // val buyerSelected = 1
             val toScreen4 = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaRegistrarse()
             v.findNavController().navigate(toScreen4)
 

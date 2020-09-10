@@ -9,7 +9,7 @@
         android:id="@+id/pantallaLogin"
         android:name="com.example.mueblerapp20.fragmentsLogin.PantallaLogin"
         android:label="fragment_1"
-        tools:layout="@layout/fragment_1" >
+        tools:layout="@layout/fragment_pantalla_login" >
         <action
             android:id="@+id/action_pantallaLogin_to_pantallaEleccionUsuario"
             app:destination="@id/pantallaEleccionUsuario" />
@@ -40,6 +40,15 @@
         <action
             android:id="@+id/action_pantallaEleccionUsuario_to_pantallaLogin"
             app:destination="@id/pantallaLogin" />
+        <argument
+            android:name="boolcomprador"
+            app:argType="boolean" />
+        <argument
+            android:name="boolvendedor"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaNumeroTelefonico"
+            app:destination="@id/pantallaNumeroTelefonico" />
     </fragment>
     <fragment
         android:id="@+id/pantallaNumeroTelefonico"

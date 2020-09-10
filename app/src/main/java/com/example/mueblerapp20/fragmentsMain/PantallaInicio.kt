@@ -1,16 +1,25 @@
 package com.example.mueblerapp20.fragmentsMain
 
-import android.graphics.Color
+
 import android.os.Bundle
-import android.view.*
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mueblerapp20.R
+import com.example.mueblerapp20.adapters.MuebleListAdapter
 import com.example.mueblerapp20.classes.Mueble
-import java.util.*
-import kotlin.collections.ArrayList
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+
 
 /**
  * A simple [Fragment] subclass.
@@ -18,65 +27,69 @@ import kotlin.collections.ArrayList
 
 class PantallaInicio : Fragment() {
 
-    lateinit var v : View
+    lateinit var v: View
 
-    lateinit var mutableList : MutableList <String>
-    lateinit var displayList : MutableList <String>
+    lateinit var recMuebles: RecyclerView
 
-    lateinit var menuInflater : MenuInflater
+    var muebles: MutableList<Mueble> = ArrayList<Mueble>()
+
+    private lateinit var gridLayoutManager: GridLayoutManager
+    private lateinit var muebleListAdapter: MuebleListAdapter
+
+    val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_inicio, container, false)
 
-        fun OnCreateOptionsMenu(menu: Menu?) {
-
-            menuInflater.inflate(R.menu.searchbar, menu)
-            val menuItem = menu!!.findItem(R.id.search)
-
-            if (menuItem != null){
-
-                val searchView = menuItem.actionView as SearchView
-
-                searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                    override fun onQueryTextSubmit(query: String?): Boolean {
-                        return  true
-                    }
-
-                    override fun onQueryTextChange(newText: String?): Boolean {
-
-                        if (newText!!.isNotEmpty()){
-
-                            displayList.clear()
-                            val search = newText.toLowerCase(Locale.getDefault())
-                            mutableList.forEach{
-
-                                if (it.nombreMueble.toLowerCase(Locale.getDefault()).contains(search)){
-                                    displayList.add(it)
-                                }
-                            }
-
-                            recyclerView.adapter!!.notifyDataSetChanged()
-                        }
-
-                        else{
-                            displayList.clear()
-                            displayList.addAll(mutableList)
-                            recyclerView.adapter!!.notifyDataSetChanged()
-                        }
-
-                        return true
-                    }
-                })
-            }
-
-            return super.onCreateOptionsMenu(menu)
-        }
+        recMuebles = v.findViewById(R.id.rec_muebles)
 
         return v
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        /*muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco, compralo", 19.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
+        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco, terrible mueble", 120.00,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
+        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco muy caro", 999.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
+        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco con patas marrones", 98.76,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
+        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco triste", 138.02,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
+*/
+        var docRef = db.collection("muebles")
+        docRef.get()
+            .addOnSuccessListener { dataSnapshot ->
+                if (dataSnapshot != null) {
+                    var mueblesDataSnapshot = dataSnapshot.documents
+                    for (snapshot in mueblesDataSnapshot) {
+                        snapshot.toObject<Mueble>()?.let { muebles.add(it) }
+                    }
+                    recMuebles.setHasFixedSize(true)
+
+                    gridLayoutManager = GridLayoutManager(context, 2)
+                    recMuebles.layoutManager = gridLayoutManager
+
+                    muebleListAdapter = MuebleListAdapter(muebles, requireContext()) { position ->
+                        onItemClick(position)
+                    }
+
+                    recMuebles.adapter = muebleListAdapter
+                } else {
+                    Log.d("Test", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("Test", "get failed with ", exception)
+            }
+    }
+
+
+    fun onItemClick ( position : Int ) {
+        val toScreen2 = PantallaInicioDirections.actionPantallaInicioToPantallaMueble(muebles[position].nombre)
+        v.findNavController().navigate(toScreen2)
+    }
+
 }
+

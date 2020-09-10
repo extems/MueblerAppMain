@@ -17,7 +17,6 @@ class PantallaTerminosYCond : Fragment() {
 
     lateinit var v : View
 
-    lateinit var btnGoBack : Button
     lateinit var btnAccept : Button
     lateinit var btnDecline : Button
 
@@ -28,7 +27,6 @@ class PantallaTerminosYCond : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_terminos_y_cond, container, false)
 
-        btnGoBack = v.findViewById(R.id.btn_goback)
         btnAccept = v.findViewById(R.id.btn_accept)
         btnDecline = v.findViewById(R.id.btn_decline)
 
@@ -37,13 +35,6 @@ class PantallaTerminosYCond : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        btnGoBack.setOnClickListener(){
-
-            val toScreen2 = PantallaTerminosYCondDirections.actionPantallaTerminosYCondToPantallaEleccionUsuario()
-            v.findNavController().navigate(toScreen2)
-
-        }
 
         btnAccept.setOnClickListener(){
 

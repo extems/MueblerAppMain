@@ -16,7 +16,6 @@ class PantallaCambiarContrasena : Fragment() {
 
     lateinit var v : View
 
-    lateinit var btnGoBack : Button
     lateinit var btnChangePassword : Button
 
     override fun onCreateView(
@@ -26,7 +25,6 @@ class PantallaCambiarContrasena : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_cambiar_contrasena, container, false)
 
-        btnGoBack = v.findViewById(R.id.btn_goback_login)
         btnChangePassword = v.findViewById(R.id.btn_change_password)
 
         return v
@@ -34,14 +32,6 @@ class PantallaCambiarContrasena : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        btnGoBack.setOnClickListener(){
-
-            val toScreen2 = PantallaCambiarContrasenaDirections.actionPantallaCambiarContrasenaToPantallaLogin()
-            v.findNavController().navigate(toScreen2)
-
-        }
-
 
         btnChangePassword.setOnClickListener(){
 

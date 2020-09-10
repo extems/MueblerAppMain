@@ -8,9 +8,9 @@ class Usuario (foto : String, nombre : String, mail : String, contrasena : Strin
     var contrasena : String
     var numeroTelefonico : Int
     var permiso : String
-    var favoritos : MutableList <Mueble>
     var venta : MutableList <Mueble>
     var carrito : Carrito
+    var favoritos : MutableList <Mueble>
 
     init {
         this.foto = foto
@@ -19,8 +19,8 @@ class Usuario (foto : String, nombre : String, mail : String, contrasena : Strin
         this.contrasena = contrasena
         this.numeroTelefonico = numeroTelefonico
         this.permiso = permiso
-        this.favoritos = favoritos
         this.venta = venta
         this.carrito = carrito
+        this.favoritos = favoritos
     }
 }

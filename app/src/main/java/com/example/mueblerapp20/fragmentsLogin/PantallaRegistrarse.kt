@@ -16,8 +16,6 @@ class PantallaRegistrarse : Fragment() {
 
     lateinit var v : View
 
-    lateinit var btnGoBackTC : Button
-    lateinit var btnGoBackUS : Button
     lateinit var btnNext : Button
 
     override fun onCreateView(
@@ -27,8 +25,6 @@ class PantallaRegistrarse : Fragment() {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_pantalla_registrarse, container, false)
 
-        btnGoBackTC = v.findViewById(R.id.btn_goback_tc)
-        btnGoBackUS = v.findViewById(R.id.btn_goback_us)
         btnNext = v.findViewById(R.id.btn_next)
 
         return v
@@ -36,21 +32,6 @@ class PantallaRegistrarse : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        btnGoBackTC.setOnClickListener(){
-
-            val toScreen2 = PantallaRegistrarseDirections.actionPantallaRegistrarseToPantallaTerminosYCond()
-            v.findNavController().navigate(toScreen2)
-
-        }
-
-
-        btnGoBackUS.setOnClickListener(){
-
-            val toScreen3 = PantallaRegistrarseDirections.actionPantallaRegistrarseToPantallaEleccionUsuario()
-            v.findNavController().navigate(toScreen3)
-
-        }
 
         btnNext.setOnClickListener(){
 
