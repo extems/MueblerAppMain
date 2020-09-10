@@ -88,14 +88,14 @@ class PantallaMueble : Fragment() {
 
 
 //        btn_addfav.setOnClickListener(){
-//            mueble.favorito = true
+//
 //            db.collection("muebles").document(document).set(mueble)
 //            Snackbar.make(v, "Se añadio a favoritos", Snackbar.LENGTH_SHORT).show()
 //        }
-
+//
 //        btn_addcarrito.setOnClickListener(){
 //
-//            mueble.carrito = true
+//
 //            db.collection("muebles").document(document).set(mueble)
 //            Snackbar.make(v, "Se añadio a carrito", Snackbar.LENGTH_SHORT).show()
 //        }

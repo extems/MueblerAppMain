@@ -52,12 +52,6 @@ class PantallaInicio : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        /*muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco, compralo", 19.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco, terrible mueble", 120.00,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco muy caro", 999.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco con patas marrones", 98.76,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        muebles.add(Mueble("https://picsum.photos/200","Mueble Blanco triste", 138.02,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-*/
         var docRef = db.collection("muebles")
         docRef.get()
             .addOnSuccessListener { dataSnapshot ->

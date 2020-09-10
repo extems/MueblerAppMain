@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Mueble(
+    id: String?,
     urlImagen: String?,
     nombre: String?,
     precio: Double,
@@ -16,6 +17,8 @@ class Mueble(
     costoDeEnvio: Double) :
 
     Parcelable {
+
+    var id : String
 
     var urlImagen: String
 
@@ -38,6 +41,7 @@ class Mueble(
     var costoDeEnvio: Double
 
     init {
+        this.id = id!!
         this.urlImagen = urlImagen!!
         this.nombre = nombre!!
         this.precio = precio!!
@@ -54,6 +58,7 @@ class Mueble(
     constructor(source: Parcel) : this(
         source.readString(),
         source.readString(),
+        source.readString(),
         source.readDouble(),
         source.readString(),
         source.readDouble(),
@@ -64,11 +69,12 @@ class Mueble(
         source.readDouble()
     )
 
-    constructor() : this("","",0.00,"",0.00,0,"","",false,0.00)
+    constructor() : this("","","",0.00,"",0.00,0,"","",false,0.00)
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+        writeString(id)
         writeString(urlImagen)
         writeString(nombre)
         writeDouble(precio)

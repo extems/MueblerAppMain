@@ -47,36 +47,29 @@ class PantallaCarrito : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        /*mueblescarrito.add(Mueble("papopepo","Mueble Blanco, compralo", 19.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        mueblescarrito.add(Mueble("papopepo","Mueble Blanco, terrible mueble", 120.00,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        mueblescarrito.add(Mueble("papopepo","Mueble Blanco muy caro", 999.99,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        mueblescarrito.add(Mueble("papopepo","Mueble Blanco con patas marrones", 98.76,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-        mueblescarrito.add(Mueble("papopepo","Mueble Blanco triste", 138.02,"Me gusta la papa", 4.99, 123, "Mueble de cocina", "Alpedro", true, 99.98))
-*/
-
-        var docRef = db.collection("muebles")
-        docRef.whereEqualTo("carrito", true).get()
-            .addOnSuccessListener { dataSnapshot ->
-                if (dataSnapshot != null) {
-                    var mueblesDataSnapshot = dataSnapshot.documents
-                    for (snapshot in mueblesDataSnapshot) {
-                        snapshot.toObject<Mueble>()?.let { mueblescarrito.add(it) }
-                    }
-                    recCarrito.setHasFixedSize(true)
-
-                    linearLayoutManager = LinearLayoutManager(context)
-                    recCarrito.layoutManager = linearLayoutManager
-
-                    muebleFavoritoListAdapter = MuebleFavoritoListAdapter(mueblescarrito, requireContext()){position -> onItemClick(position)}
-
-                    recCarrito.adapter = muebleFavoritoListAdapter
-                } else {
-                    Log.d("Test", "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("Test", "get failed with ", exception)
-            }
+//        var docRef = db.collection("muebles")
+//        docRef.whereEqualTo().get()
+//            .addOnSuccessListener { dataSnapshot ->
+//                if (dataSnapshot != null) {
+//                    var mueblesDataSnapshot = dataSnapshot.documents
+//                    for (snapshot in mueblesDataSnapshot) {
+//                        snapshot.toObject<Mueble>()?.let { mueblescarrito.add(it) }
+//                    }
+//                    recCarrito.setHasFixedSize(true)
+//
+//                    linearLayoutManager = LinearLayoutManager(context)
+//                    recCarrito.layoutManager = linearLayoutManager
+//
+//                    muebleFavoritoListAdapter = MuebleFavoritoListAdapter(mueblescarrito, requireContext()){position -> onItemClick(position)}
+//
+//                    recCarrito.adapter = muebleFavoritoListAdapter
+//                } else {
+//                    Log.d("Test", "No such document")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d("Test", "get failed with ", exception)
+//            }
     }
 
     fun onItemClick ( position : Int ) {
