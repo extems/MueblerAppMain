@@ -4,27 +4,27 @@
     <item
         android:id="@+id/pantallaInicio"
         android:icon="@drawable/ic_baseline_home_black"
-        android:title="Home" />
+        android:title="Inicio" />
 
     <item
         android:id="@+id/pantallaCategorias"
-        android:icon="@drawable/ic_sharp_dehaze_black"
-        android:title="Filter" />
+        android:icon="@drawable/search_icon"
+        android:title="Buscar" />
 
     <item
         android:id="@+id/pantallaFavoritos"
         android:icon="@drawable/ic_sharp_favorite_black"
-        android:title="Favourite" />
+        android:title="Favoritos" />
 
     <item
         android:id="@+id/pantallaCarrito"
         android:icon="@drawable/ic_baseline_shopping_cart_black"
-        android:title="Shopping Cart" />
+        android:title="Carrito" />
 
     <item
         android:id="@+id/pantallaPerfil"
         android:icon="@drawable/ic_baseline_account_circle_black"
-        android:title="Profile" />
+        android:title="Perfil" />
 
 
 

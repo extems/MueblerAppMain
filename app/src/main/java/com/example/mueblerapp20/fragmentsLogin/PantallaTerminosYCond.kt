@@ -38,17 +38,14 @@ class PantallaTerminosYCond : Fragment() {
 
         btnAccept.setOnClickListener(){
 
-            val toScreen3 = PantallaTerminosYCondDirections.actionPantallaTerminosYCondToPantallaRegistrarse()
-            v.findNavController().navigate(toScreen3)
-
+            val toScreenRegistrarse = PantallaTerminosYCondDirections.actionPantallaTerminosYCondToPantallaRegistrarse("vendedor")
+            v.findNavController().navigate(toScreenRegistrarse)
         }
 
         btnDecline.setOnClickListener(){
 
-            Snackbar.make(v,"Debe aceptar los terminos y condiciones para convertirse en vendedor", Snackbar.LENGTH_SHORT).show()
-
+            val toScreenEleccionUsuario = PantallaTerminosYCondDirections.actionPantallaTerminosYCondToPantallaEleccionUsuario()
+            v.findNavController().navigate(toScreenEleccionUsuario)
         }
-
     }
-
 }

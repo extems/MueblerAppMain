@@ -8,32 +8,6 @@
     tools:context=".fragmentsMain.PantallaCarrito">
 
     <TextView
-        android:id="@+id/precio_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$500"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline31"
-        app:layout_constraintTop_toTopOf="@+id/guideline33" />
-
-    <TextView
-        android:id="@+id/tv_mesa3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="1dp"
-        android:text="Mesa blanca buenarda $150"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mesa2" />
-
-    <TextView
         android:id="@+id/tv_subtotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,14 +24,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_mesa1"
+        android:id="@+id/tv_mueble1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="2dp"
-        android:text="Mesa blanca con patas marrones $100"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_mesa2"
+        app:layout_constraintBottom_toTopOf="@+id/tv_mueble2"
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,25 +38,37 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_mesa2"
+        android:id="@+id/tv_mueble2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="1dp"
-        android:text="Mesa blanca terrible $125"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_mesa3"
+        app:layout_constraintBottom_toTopOf="@+id/tv_mueble3"
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mesa1" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mueble1" />
+
+    <TextView
+        android:id="@+id/tv_mueble3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="1dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline32"
+        app:layout_constraintEnd_toStartOf="@+id/guideline31"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mueble2" />
 
     <TextView
         android:id="@+id/precio_subtotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="$375"
+        android:text="$0"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
@@ -110,7 +95,7 @@
         android:id="@+id/precio_envio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$125"
+        android:text="$0"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline33"
@@ -130,6 +115,18 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline33" />
+
+    <TextView
+        android:id="@+id/precio_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline31"
         app:layout_constraintTop_toTopOf="@+id/guideline33" />
 
     <androidx.constraintlayout.widget.Guideline

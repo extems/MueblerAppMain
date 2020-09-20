@@ -1,8 +1,10 @@
 package com.example.mueblerapp20.fragmentsLogin
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,12 @@ import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mueblerapp20.MainActivity
 import com.example.mueblerapp20.R
+import com.example.mueblerapp20.adapters.MuebleFavoritoListAdapter
+import com.example.mueblerapp20.classes.Guest
+import com.example.mueblerapp20.classes.Mueble
 import com.example.mueblerapp20.classes.Usuario
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
@@ -26,12 +33,11 @@ class PantallaLogin : Fragment() {
 
     lateinit var v: View
 
+    lateinit var id : String
     lateinit var email: String
     lateinit var password: String
     lateinit var editMail: EditText
     lateinit var editPass: EditText
-    var encontradoMail: Boolean = false
-    var encontradoPass: Boolean = false
 
     lateinit var btnChangePassword: Button
     lateinit var btnLogin: Button
@@ -40,8 +46,8 @@ class PantallaLogin : Fragment() {
     lateinit var btnLoginGoogle: ImageButton
 
     var usuario: MutableList<Usuario> = ArrayList<Usuario>()
+    var guest: MutableList<Guest> = ArrayList<Guest>()
 
-    private val PREF_NAME = "myPreferences"
     val db = Firebase.firestore
 
     override fun onCreateView(
@@ -67,20 +73,14 @@ class PantallaLogin : Fragment() {
         super.onStart()
 
         btnChangePassword.setOnClickListener() {
-
-            val toScreen2 = PantallaLoginDirections.actionPantallaLoginToPantallaCambiarContrasena()
-            v.findNavController().navigate(toScreen2)
-
+            val toScreenCambiarContrasena = PantallaLoginDirections.actionPantallaLoginToPantallaCambiarContrasena()
+            v.findNavController().navigate(toScreenCambiarContrasena)
         }
 
         btnRegister.setOnClickListener() {
 
-            val toScreen3 = PantallaLoginDirections.actionPantallaLoginToPantallaEleccionUsuario(
-                true,
-                false
-            )
-            v.findNavController().navigate(toScreen3)
-
+            val toScreenEleccionUsuario = PantallaLoginDirections.actionPantallaLoginToPantallaEleccionUsuario()
+            v.findNavController().navigate(toScreenEleccionUsuario)
         }
 
         btnLogin.setOnClickListener() {
@@ -96,48 +96,62 @@ class PantallaLogin : Fragment() {
                             var usuarioDataSnapshot = dataSnapshot.documents
                             for (snapshot in usuarioDataSnapshot) {
                                 snapshot.toObject<Usuario>()?.let { usuario.add(it) }
-                                Snackbar.make(v, "Entro al for", Snackbar.LENGTH_SHORT)
                             }
                             if (usuario.isNotEmpty()) {
                                 if (usuario[0].contrasena == password) {
-                                    val sharedPref: SharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+                                    val sharedPref: SharedPreferences = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
                                     val editor = sharedPref.edit()
                                     editor.putString("USERID", usuario[0].email)
+                                    editor.putString("Permiso", "Vendedor")
                                     editor.apply()
-//                                  user = sharedPref.getString("USERID","default")!!
-                                    Snackbar.make(
-                                        v,
-                                        "Jorge",
-                                        Snackbar.LENGTH_SHORT
-                                    )
-                                        .show()
+                                    val toMain = Intent(this.activity, MainActivity::class.java)
+                                    startActivity(toMain)
                                 } else {
-                                    Snackbar.make(v, "Contraseña incorrecta", Snackbar.LENGTH_SHORT)
-                                        .show()
+                                    Snackbar.make(v, "Contraseña incorrecta", Snackbar.LENGTH_SHORT).show()
                                 }
                             }
                             else{
-                                Snackbar.make(
-                                    v,
-                                    "No se ha encontrado su usuario, registrese para acceder a la aplicacion",
-                                    Snackbar.LENGTH_SHORT
-                                ).show()
+                                Snackbar.make(v, "No se ha encontrado su usuario, registrese para acceder", Snackbar.LENGTH_SHORT).show()
                             }
                         } else {
-                            Snackbar.make(v, "Datasnapshot es nulo", Snackbar.LENGTH_SHORT).show()
+                            Snackbar.make(v, "Ha ocurrido un error inesperado, intente nuevamente", Snackbar.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Snackbar.make(
-                            v,
-                            "Ha ocurrido un error inesperado, intente nuevamente",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(v, "Ha ocurrido un error inesperado, intente nuevamente", Snackbar.LENGTH_SHORT).show()
                     }
             }
             else {
                 Snackbar.make(v, "Rellene los campos", Snackbar.LENGTH_SHORT).show()
             }
+        }
+
+        btnLoginGuest.setOnClickListener() {
+            id = "guest"
+            var docRefMail = db.collection("guest")
+            docRefMail.whereEqualTo("idguest", id).get().addOnSuccessListener { dataSnapshot ->
+                    if (dataSnapshot != null) {
+                        var guestDataSnapshot = dataSnapshot.documents
+                        for (snapshot in guestDataSnapshot) {
+                            snapshot.toObject<Guest>()?.let { guest.add(it) }
+                        }
+                        if (guest.isNotEmpty()) {
+                            val sharedPref: SharedPreferences = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+                            val editor = sharedPref.edit()
+                            editor.putString("USERID", guest[0].idguest)
+                            editor.putString("Permiso", "Invitado")
+                            editor.apply()
+                            val toMain = Intent(this.activity, MainActivity::class.java)
+                            startActivity(toMain)
+                        }
+                        else{
+                            Snackbar.make(v, "La variable guest esta vacia", Snackbar.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Snackbar.make(v, "Ha ocurrido un error inesperado, intente nuevamente", Snackbar.LENGTH_SHORT).show()
+                }
         }
     }
 }

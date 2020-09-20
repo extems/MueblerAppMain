@@ -23,10 +23,12 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,22 +58,14 @@
                 android:text="Somos una muebleria de alto nivel, donde puede comprar sillas, sillones, mesas y demas."
                 android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text='Nuestro local esta situado en la avenida "La plata" a la altura 2456, CABA.'
-                android:textAlignment="center" />
-
             <View
                 android:id="@+id/divider"
                 android:layout_width="390dp"
                 android:layout_height="2dp"
+                android:layout_marginTop="20dp"
                 android:background="?android:attr/listDivider"
                 android:backgroundTint="#C2C2C2"
                 android:backgroundTintMode="add"
-                android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline36"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +78,10 @@
                 android:layout_marginTop="20dp"
                 android:text="Articulos de nuestra tienda que podrian interesarte:"
                 android:textAlignment="center" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
         </LinearLayout>

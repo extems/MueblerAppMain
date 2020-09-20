@@ -9,9 +9,6 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.mueblerapp20.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class PantallaCambiarContrasena : Fragment() {
 
     lateinit var v : View
@@ -35,8 +32,8 @@ class PantallaCambiarContrasena : Fragment() {
 
         btnChangePassword.setOnClickListener(){
 
-            val toScreen3 = PantallaCambiarContrasenaDirections.actionPantallaCambiarContrasenaToPantallaLogin()
-            v.findNavController().navigate(toScreen3)
+            val toScreenLogin = PantallaCambiarContrasenaDirections.actionPantallaCambiarContrasenaToPantallaLogin()
+            v.findNavController().navigate(toScreenLogin)
 
         }
 

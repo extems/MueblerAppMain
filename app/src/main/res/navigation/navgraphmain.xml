@@ -11,18 +11,6 @@
         android:label="fragment_pantalla_carrito"
         tools:layout="@layout/fragment_pantalla_carrito" >
         <action
-            android:id="@+id/action_pantallaCarrito_to_pantallaPerfil"
-            app:destination="@id/pantallaPerfil" />
-        <action
-            android:id="@+id/action_pantallaCarrito_to_pantallaInicio"
-            app:destination="@id/pantallaInicio" />
-        <action
-            android:id="@+id/action_pantallaCarrito_to_pantallaCategorias"
-            app:destination="@id/pantallaCategorias" />
-        <action
-            android:id="@+id/action_pantallaCarrito_to_pantallaFavoritos"
-            app:destination="@id/pantallaFavoritos" />
-        <action
             android:id="@+id/action_pantallaCarrito_to_pantallaMueble"
             app:destination="@id/pantallaMueble" />
     </fragment>
@@ -30,37 +18,12 @@
         android:id="@+id/pantallaCategorias"
         android:name="com.example.mueblerapp20.fragmentsMain.PantallaCategorias"
         android:label="fragment_pantalla_categorias"
-        tools:layout="@layout/fragment_pantalla_categorias" >
-        <action
-            android:id="@+id/action_pantallaCategorias_to_pantallaFavoritos"
-            app:destination="@id/pantallaFavoritos" />
-        <action
-            android:id="@+id/action_pantallaCategorias_to_pantallaInicio"
-            app:destination="@id/pantallaInicio" />
-        <action
-            android:id="@+id/action_pantallaCategorias_to_pantallaCarrito"
-            app:destination="@id/pantallaCarrito" />
-        <action
-            android:id="@+id/action_pantallaCategorias_to_pantallaPerfil"
-            app:destination="@id/pantallaPerfil" />
-    </fragment>
+        tools:layout="@layout/fragment_pantalla_categorias" />
     <fragment
         android:id="@+id/pantallaFavoritos"
         android:name="com.example.mueblerapp20.fragmentsMain.PantallaFavoritos"
         android:label="fragment_pantalla_favoritos"
         tools:layout="@layout/fragment_pantalla_favoritos" >
-        <action
-            android:id="@+id/action_pantallaFavoritos_to_pantallaCarrito"
-            app:destination="@id/pantallaCarrito" />
-        <action
-            android:id="@+id/action_pantallaFavoritos_to_pantallaInicio"
-            app:destination="@id/pantallaInicio" />
-        <action
-            android:id="@+id/action_pantallaFavoritos_to_pantallaCategorias"
-            app:destination="@id/pantallaCategorias" />
-        <action
-            android:id="@+id/action_pantallaFavoritos_to_pantallaPerfil"
-            app:destination="@id/pantallaPerfil" />
         <action
             android:id="@+id/action_pantallaFavoritos_to_pantallaMueble"
             app:destination="@id/pantallaMueble" />
@@ -71,18 +34,6 @@
         android:label="fragment_pantalla_inicio"
         tools:layout="@layout/fragment_pantalla_inicio" >
         <action
-            android:id="@+id/action_pantallaInicio_to_pantallaCategorias"
-            app:destination="@id/pantallaCategorias" />
-        <action
-            android:id="@+id/action_pantallaInicio_to_pantallaFavoritos"
-            app:destination="@id/pantallaFavoritos" />
-        <action
-            android:id="@+id/action_pantallaInicio_to_pantallaCarrito"
-            app:destination="@id/pantallaCarrito" />
-        <action
-            android:id="@+id/action_pantallaInicio_to_pantallaPerfil"
-            app:destination="@id/pantallaPerfil" />
-        <action
             android:id="@+id/action_pantallaInicio_to_pantallaMueble"
             app:destination="@id/pantallaMueble" />
     </fragment>
@@ -92,18 +43,6 @@
         android:label="fragment_pantalla_perfil"
         tools:layout="@layout/fragment_pantalla_perfil" >
         <action
-            android:id="@+id/action_pantallaPerfil_to_pantallaInicio"
-            app:destination="@id/pantallaInicio" />
-        <action
-            android:id="@+id/action_pantallaPerfil_to_pantallaCategorias"
-            app:destination="@id/pantallaCategorias" />
-        <action
-            android:id="@+id/action_pantallaPerfil_to_pantallaFavoritos"
-            app:destination="@id/pantallaFavoritos" />
-        <action
-            android:id="@+id/action_pantallaPerfil_to_pantallaCarrito"
-            app:destination="@id/pantallaCarrito" />
-        <action
             android:id="@+id/action_pantallaPerfil_to_pantallaMueble"
             app:destination="@id/pantallaMueble" />
     </fragment>
@@ -112,23 +51,8 @@
         android:name="com.example.mueblerapp20.fragmentsMain.PantallaMueble"
         android:label="fragment_pantalla_mueble"
         tools:layout="@layout/fragment_pantalla_mueble" >
-        <action
-            android:id="@+id/action_pantallaMueble_to_pantallaInicio"
-            app:destination="@id/pantallaInicio" />
-        <action
-            android:id="@+id/action_pantallaMueble_to_pantallaFavoritos"
-            app:destination="@id/pantallaFavoritos" />
-        <action
-            android:id="@+id/action_pantallaMueble_to_pantallaCarrito"
-            app:destination="@id/pantallaCarrito" />
-        <action
-            android:id="@+id/action_pantallaMueble_to_pantallaPerfil"
-            app:destination="@id/pantallaPerfil" />
-        <action
-            android:id="@+id/action_pantallaMueble_to_pantallaCategorias"
-            app:destination="@id/pantallaCategorias" />
         <argument
-            android:name="nombre_mueble_seleccionado"
+            android:name="id_mueble_seleccionado"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mueblerapp20.LoginActivity
+import com.example.mueblerapp20.MainActivity
 import com.example.mueblerapp20.PublishActivity
 import com.example.mueblerapp20.R
 import com.google.android.material.snackbar.Snackbar
@@ -54,7 +56,8 @@ class PantallaPerfil : Fragment() {
             }
 
             R.id.action_logout -> {
-                Snackbar.make(v,"Esta caracteristica se encuentra deshabilitada",Snackbar.LENGTH_SHORT).show()
+                val toLogin = Intent(this.activity, LoginActivity::class.java)
+                startActivity(toLogin)
             }
 
             else -> ""

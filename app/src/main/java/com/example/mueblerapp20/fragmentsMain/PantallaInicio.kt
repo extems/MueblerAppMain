@@ -81,7 +81,7 @@ class PantallaInicio : Fragment() {
 
 
     fun onItemClick ( position : Int ) {
-        val toScreen2 = PantallaInicioDirections.actionPantallaInicioToPantallaMueble(muebles[position].nombre)
+        val toScreen2 = PantallaInicioDirections.actionPantallaInicioToPantallaMueble(muebles[position].id)
         v.findNavController().navigate(toScreen2)
     }
 

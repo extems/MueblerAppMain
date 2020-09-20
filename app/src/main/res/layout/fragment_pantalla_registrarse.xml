@@ -103,34 +103,7 @@
         app:layout_constraintGuide_percent="0.53" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#81C41C"
-        android:ems="10"
-        android:hint="Coloque su nombre de usuario"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline67"
-        app:layout_constraintEnd_toStartOf="@+id/guideline61"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
-        app:layout_constraintTop_toTopOf="@+id/guideline66" />
-
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:padding="0dp"
-        android:textAlignment="center"
-        android:textSize="14dp"
-        android:text="Siguiente"
-        app:layout_constraintBottom_toTopOf="@+id/guideline73"
-        app:layout_constraintEnd_toStartOf="@+id/guideline61"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
-        app:layout_constraintTop_toTopOf="@+id/guideline72" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/et_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#81C41C"
@@ -143,7 +116,20 @@
         app:layout_constraintTop_toTopOf="@+id/guideline64" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/et_nombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#81C41C"
+        android:ems="10"
+        android:hint="Coloque su nombre de usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guideline67"
+        app:layout_constraintEnd_toStartOf="@+id/guideline61"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline66" />
+
+    <EditText
+        android:id="@+id/et_contrasena"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#81C41C"
@@ -156,7 +142,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline68" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/et_confirm_contrasena"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#81C41C"
@@ -167,6 +153,20 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline61"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
         app:layout_constraintTop_toTopOf="@+id/guideline70" />
+
+    <Button
+        android:id="@+id/btn_registrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="0dp"
+        android:text="Siguiente"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline73"
+        app:layout_constraintEnd_toStartOf="@+id/guideline61"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline72" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline42"

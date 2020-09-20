@@ -37,41 +37,26 @@
         <action
             android:id="@+id/action_pantallaEleccionUsuario_to_pantallaTerminosYCond"
             app:destination="@id/pantallaTerminosYCond" />
-        <action
-            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaLogin"
-            app:destination="@id/pantallaLogin" />
-        <argument
-            android:name="boolcomprador"
-            app:argType="boolean" />
-        <argument
-            android:name="boolvendedor"
-            app:argType="boolean" />
-        <action
-            android:id="@+id/action_pantallaEleccionUsuario_to_pantallaNumeroTelefonico"
-            app:destination="@id/pantallaNumeroTelefonico" />
     </fragment>
     <fragment
         android:id="@+id/pantallaNumeroTelefonico"
         android:name="com.example.mueblerapp20.fragmentsLogin.PantallaNumeroTelefonico"
         android:label="fragment_pantalla_numero_telefonico"
         tools:layout="@layout/fragment_pantalla_numero_telefonico" >
+        <argument
+            android:name="permiso"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <argument
+            android:name="contrasena"
+            app:argType="string" />
         <action
-            android:id="@+id/action_pantallaNumeroTelefonico_to_pantallaRegistrarse"
-            app:destination="@id/pantallaRegistrarse" />
-        <action
-            android:id="@+id/action_pantallaNumeroTelefonico_to_pantallaPreguntas"
-            app:destination="@id/pantallaPreguntas" />
-    </fragment>
-    <fragment
-        android:id="@+id/pantallaPreguntas"
-        android:name="com.example.mueblerapp20.fragmentsLogin.PantallaPreguntas"
-        android:label="fragment_pantalla_preguntas"
-        tools:layout="@layout/fragment_pantalla_preguntas" >
-        <action
-            android:id="@+id/action_pantallaPreguntas_to_pantallaNumeroTelefonico"
-            app:destination="@id/pantallaNumeroTelefonico" />
-        <action
-            android:id="@+id/action_pantallaPreguntas_to_pantallaLogin"
+            android:id="@+id/action_pantallaNumeroTelefonico_to_pantallaLogin"
             app:destination="@id/pantallaLogin" />
     </fragment>
     <fragment
@@ -80,14 +65,11 @@
         android:label="fragment_pantalla_registrarse"
         tools:layout="@layout/fragment_pantalla_registrarse" >
         <action
-            android:id="@+id/action_pantallaRegistrarse_to_pantallaEleccionUsuario"
-            app:destination="@id/pantallaEleccionUsuario" />
-        <action
             android:id="@+id/action_pantallaRegistrarse_to_pantallaNumeroTelefonico"
             app:destination="@id/pantallaNumeroTelefonico" />
-        <action
-            android:id="@+id/action_pantallaRegistrarse_to_pantallaTerminosYCond"
-            app:destination="@id/pantallaTerminosYCond" />
+        <argument
+            android:name="permiso"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pantallaTerminosYCond"

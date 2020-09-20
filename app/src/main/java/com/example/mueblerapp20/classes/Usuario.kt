@@ -5,16 +5,19 @@ import android.os.Parcelable
 import java.util.ArrayList
 
 class Usuario(
+    id: String?,
     foto: String?,
     nombre: String?,
     email: String?,
     contrasena: String?,
     numeroTelefonico: Int,
     permiso: String?,
-    venta: ArrayList<String>?,
-    carrito: ArrayList<String>?,
-    favoritos: ArrayList<String>?
+    venta: MutableList<String>,
+    carrito: MutableList<String>,
+    favoritos: MutableList<String>
 ) : Parcelable {
+    var id: String
+
     var foto: String
 
     var nombre: String
@@ -34,6 +37,7 @@ class Usuario(
     var favoritos: MutableList<String>
 
     init {
+        this.id = id!!
         this.foto = foto!!
         this.nombre = nombre!!
         this.email = email!!
@@ -50,18 +54,20 @@ class Usuario(
         source.readString(),
         source.readString(),
         source.readString(),
+        source.readString(),
         source.readInt(),
         source.readString(),
-        source.createStringArrayList(),
-        source.createStringArrayList(),
-        source.createStringArrayList()
+        source.createStringArrayList()!!,
+        source.createStringArrayList()!!,
+        source.createStringArrayList()!!
     )
 
-    constructor() : this ("","","","",0,"", null,null,null)
+    constructor() : this ("","","","","",0,"", ArrayList<String>(),ArrayList<String>(),ArrayList<String>())
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+        writeString(id)
         writeString(foto)
         writeString(nombre)
         writeString(email)

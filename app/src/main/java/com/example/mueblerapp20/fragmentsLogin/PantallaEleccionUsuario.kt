@@ -10,9 +10,6 @@ import androidx.navigation.findNavController
 import com.example.mueblerapp20.R
 import kotlinx.android.synthetic.main.fragment_pantalla_inicio.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class PantallaEleccionUsuario : Fragment() {
 
     lateinit var v : View
@@ -45,8 +42,8 @@ class PantallaEleccionUsuario : Fragment() {
 
         btnRegisterBuyer.setOnClickListener(){
 
-            val toScreen4 = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaRegistrarse()
-            v.findNavController().navigate(toScreen4)
+            val toScreenRegistrarse = PantallaEleccionUsuarioDirections.actionPantallaEleccionUsuarioToPantallaRegistrarse("comprador")
+            v.findNavController().navigate(toScreenRegistrarse)
 
         }
 
